@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/jiuyuan?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  ##静态资源路径
+  resources:
+   static-locations: /WEB-INF/static/,/WEB-INF/views/
+##修改访问端口
+server:
+  port: 80
+##log4j2.xml路径
+logging:
+  config: classpath:log4j2.xml
+  
+mybatis:
+  typeAliasesPackage: com.jiuyuan
+  mapperLocations: classpath*:com/jiuyuan/*/mapper/*Mapper.xml 
