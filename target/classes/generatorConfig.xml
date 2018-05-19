@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- Mybatis自动生成实体类和映射文件插件 -->
+	<context id="context1">
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+			<!-- 是否生成注释代时间戳 -->
+			<property name="suppressDate" value="false" />
+		</commentGenerator>
+		<!-- 配置数据库连接 -->
+		<jdbcConnection
+			connectionURL="jdbc:mysql://localhost:3306/jiuyuan?characterEncoding=utf8"
+			driverClass="com.mysql.jdbc.Driver" password="root" userId="root" />
+		<!-- 配置实体bean 生成Model类存放位置 -->
+		<javaModelGenerator
+			targetPackage="com.jiuyuan.sys.user.domain" targetProject="jiuyuan" />
+		<!-- 配置实体map接口（dao） -->
+		<sqlMapGenerator targetPackage="com.jiuyuan.sys.user.mapper"
+			targetProject="jiuyuan" />
+		<!-- 配置实体bean的sql.xml -->
+		<javaClientGenerator
+			targetPackage="com.jiuyuan.sys.user.mapper" targetProject="jiuyuan"
+			type="XMLMAPPER" />
+		<!-- 配置要生成的实体 -->
+		<table tableName="tUser" domainObjectName="User"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<!-- true为使用驼峰，false则生成的model类会直接使用column本身的名字，而不会再使用驼峰命名方法 -->
+			<property name="useActualColumnNames" value="true" />
+			<columnOverride column="pk" property="pk" />
+		</table>
+	</context>
+</generatorConfiguration>
